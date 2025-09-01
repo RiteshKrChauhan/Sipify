@@ -4,14 +4,11 @@ import axios from 'axios';
 const app = express();
 const port = 3000;
 
-// Set up EJS as the view engine
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
-// Serve static files from public directory
 app.use(express.static('public'));
 
-// Parse URL-encoded bodies
 app.use(express.urlencoded({ extended: true }));
 
 // TheCocktailDB API endpoint for random cocktails

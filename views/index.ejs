@@ -81,13 +81,14 @@
     </div>
 
     <script>
+        // Add loading animation to button clicks
         document.addEventListener('DOMContentLoaded', function () {
             const forms = document.querySelectorAll('form[action="/new-cocktail"]');
             forms.forEach(form => {
                 form.addEventListener('submit', function () {
                     const button = this.querySelector('.btn-new-cocktail');
                     button.innerHTML = 'Getting New Cocktail<span class="loading"></span>';
-                    button.disabled = true; // optional, prevents double click
+                    button.disabled = true;
                 });
             });
         });
