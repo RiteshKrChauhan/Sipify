@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍸</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🍸 Sipify</h1>
+            <p class="subtitle">Discover amazing cocktails from around the world</p>
+        </header>
+        
+        <main>
+            <%- body %>
+        </main>
+    </div>
+
+    <script>
+        // Add loading animation to button clicks
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.btn-new-cocktail');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const originalText = this.innerHTML;
+                    this.innerHTML = 'Getting New Cocktail<span class="loading"></span>';
+                    this.disabled = true;
+                    
+                    // Re-enable after form submission
+                    setTimeout(() => {
+                        this.innerHTML = originalText;
+                        this.disabled = false;
+                    }, 2000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

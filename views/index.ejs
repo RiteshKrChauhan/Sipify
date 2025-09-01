@@ -1,0 +1,48 @@
+<%- include('layout', { title: title, body: `
+<div class="main-content fade-in">
+    <div class="cocktail-card">
+        <div class="cocktail-image">
+            <img src="${cocktail.strDrinkThumb}" alt="${cocktail.strDrink}" loading="lazy">
+        </div>
+        
+        <div class="cocktail-info">
+            <div>
+                <h2 class="cocktail-name">${cocktail.strDrink}</h2>
+                
+                <span class="cocktail-category">${cocktail.strCategory}</span>
+                
+                <p class="cocktail-glass">
+                    <strong>Served in:</strong> ${cocktail.strGlass}
+                </p>
+                
+                <div class="ingredients-section">
+                    <h3 class="section-title">Ingredients</h3>
+                    <ul class="ingredients-list">
+                        ${ingredients.map(item => `
+                            <li class="ingredient-item">
+                                ${item.measurement ? `<span class="measurement">${item.measurement}</span> ` : ''}
+                                <span class="ingredient">${item.ingredient}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+                
+                <div class="instructions-section">
+                    <h3 class="section-title">Instructions</h3>
+                    <div class="instructions">
+                        ${cocktail.strInstructions}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="action-section">
+    <form method="POST" action="/new-cocktail" style="display: inline;">
+        <button type="submit" class="btn-new-cocktail">
+            🎲 Get Another Cocktail
+        </button>
+    </form>
+</div>
+` }) %>

@@ -1,0 +1,19 @@
+<%- include('layout', { title: title, body: `
+<div class="error-container fade-in">
+    <div class="error-icon">😵</div>
+    <h2 class="error-title">${error}</h2>
+    <p class="error-message">${message}</p>
+    
+    <div class="action-section">
+        <a href="/" class="btn-home">
+            🏠 Back to Home
+        </a>
+        
+        <form method="POST" action="/new-cocktail" style="display: inline; margin-left: 1rem;">
+            <button type="submit" class="btn-new-cocktail">
+                🔄 Try Again
+            </button>
+        </form>
+    </div>
+</div>
+` }) %>
