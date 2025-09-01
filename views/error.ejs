@@ -1,19 +1,52 @@
-<%- include('layout', { title: title, body: `
-<div class="error-container fade-in">
-    <div class="error-icon">😵</div>
-    <h2 class="error-title">${error}</h2>
-    <p class="error-message">${message}</p>
-    
-    <div class="action-section">
-        <a href="/" class="btn-home">
-            🏠 Back to Home
-        </a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍸</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🍸 Sipify</h1>
+            <p class="subtitle">Discover amazing cocktails from around the world</p>
+        </header>
         
-        <form method="POST" action="/new-cocktail" style="display: inline; margin-left: 1rem;">
-            <button type="submit" class="btn-new-cocktail">
-                🔄 Try Again
-            </button>
-        </form>
+        <main>
+            <div class="error-container fade-in">
+                <div class="error-icon">😵</div>
+                <h2 class="error-title"><%= error %></h2>
+                <p class="error-message"><%= message %></p>
+                
+                <div class="action-section">
+                    <a href="/" class="btn-home">
+                        🏠 Back to Home
+                    </a>
+                    
+                    <form method="POST" action="/new-cocktail" style="display: inline; margin-left: 1rem;">
+                        <button type="submit" class="btn-new-cocktail">
+                            🔄 Try Again
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </main>
     </div>
-</div>
-` }) %>
+
+    <script>
+        // Add loading animation to button clicks
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.btn-new-cocktail');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const originalText = this.innerHTML;
+                    this.innerHTML = 'Getting New Cocktail<span class="loading"></span>';
+                    this.disabled = true;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
