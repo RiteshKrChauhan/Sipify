@@ -1,5 +1,6 @@
 import express from 'express';
 import axios from 'axios';
+import bodyParser from "body-parser";
 
 const app = express();
 const port = 3000;
@@ -9,7 +10,7 @@ app.set('views', './views');
 
 app.use(express.static('public'));
 
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // TheCocktailDB API endpoint for random cocktails
 const COCKTAIL_API_URL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
