@@ -106,4 +106,11 @@ The application intelligently handles different API responses:
 - Adaptive grid layout for cocktail cards
 - Touch-friendly interface elements
 
-🍸 **Happy Mixing!** 🍸
+---
+
+<div align="center">
+  <p>🍸 **Happy Mixing!** 🍸</p>
+  <p>© 2025 Sipify. All rights reserved.</p>
+</div>
+
+---
