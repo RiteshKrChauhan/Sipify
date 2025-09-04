@@ -19,6 +19,18 @@
             <p class="subtitle">Discover amazing cocktails from around the world</p>
         </header>
 
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <form method="POST" action="/filter-cocktail" class="filter-form">
+                <label for="cocktail-filter" class="filter-label">Filter by type:</label>
+                <select name="filter" id="cocktail-filter" class="filter-dropdown" onchange="this.form.submit()">
+                    <option value="random" <%= currentFilter === 'random' ? 'selected' : '' %>>🎲 Random</option>
+                    <option value="alcoholic" <%= currentFilter === 'alcoholic' ? 'selected' : '' %>>🍺 Alcoholic</option>
+                    <option value="non-alcoholic" <%= currentFilter === 'non-alcoholic' ? 'selected' : '' %>>🥤 Non-Alcoholic</option>
+                </select>
+            </form>
+        </div>
+
         <main>
             <div class="main-content fade-in">
                 <div class="cocktail-card">
@@ -71,7 +83,8 @@
             </div>
 
             <div class="action-section">
-                <form method="POST" action="/new-cocktail" style="display: inline; ">
+                <form method="POST" action="/new-cocktail" style="display: inline;">
+                    <input type="hidden" name="filter" value="<%= currentFilter %>">
                     <button type="submit" class="btn-new-cocktail">
                         🎲 Get Another Cocktail
                     </button>

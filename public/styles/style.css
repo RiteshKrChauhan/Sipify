@@ -38,6 +38,64 @@ h1 {
   font-weight: 300;
 }
 
+/* Filter Section */
+.filter-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.filter-form {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.filter-form:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.filter-label {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 1.1rem;
+}
+
+.filter-dropdown {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+  min-width: 160px;
+}
+
+.filter-dropdown:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.filter-dropdown:focus {
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+}
+
+.filter-dropdown option {
+  background: white;
+  color: #2c3e50;
+  padding: 0.5rem;
+}
+
 /* Main Content */
 .main-content {
   background: white;
@@ -254,6 +312,16 @@ h1 {
   
   h1 {
     font-size: 2rem;
+  }
+  
+  .filter-form {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+  }
+  
+  .filter-dropdown {
+    min-width: 140px;
   }
   
   .cocktail-info {
