@@ -17,17 +17,6 @@ const COCKTAIL_API_URL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php
 const COCKTAIL_API_URL_ALCOHOLIC= 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic';
 const COCKTAIL_API_URL_NON_ALCOHOLIC= 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic';
 
-// Helper function to fetch random cocktail
-async function fetchRandomCocktail() {
-  try {
-    const response = await axios.get(COCKTAIL_API_URL);
-    return response.data.drinks[0];
-  } catch (error) {
-    console.error('Error fetching cocktail:', error);
-    throw error;
-  }
-}
-
 // Helper function to fetch filtered cocktails
 async function fetchFilteredCocktails(filter) {
   try {
@@ -55,17 +44,6 @@ async function fetchFilteredCocktails(filter) {
     return response.data.drinks[0];
   } catch (error) {
     console.error('Error fetching filtered cocktail:', error);
-    throw error;
-  }
-}
-
-// Helper function to get cocktail details by ID
-async function fetchCocktailById(id) {
-  try {
-    const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`);
-    return response.data.drinks[0];
-  } catch (error) {
-    console.error('Error fetching cocktail details:', error);
     throw error;
   }
 }
